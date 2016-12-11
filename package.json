@@ -9,5 +9,8 @@
   "dependencies": {
     "express-graphql": "^0.6.1",
     "graphql": "^0.8.2"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
