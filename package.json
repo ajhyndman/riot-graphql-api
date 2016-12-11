@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:ajhyndman/riot-api-graphql.git",
   "author": "Andrew Hyndman <ajhyndman@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^0.8.2"
+  }
 }
