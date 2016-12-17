@@ -7,6 +7,7 @@
   "author": "Andrew Hyndman <ajhyndman@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dataloader": "^1.2.0",
     "express": "^4.14.0",
     "express-graphql": "^0.6.1",
     "graphql": "^0.8.2",
