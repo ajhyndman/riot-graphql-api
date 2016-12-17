@@ -8,6 +8,7 @@ const app = express();
 
 app.use(graphQLHTTP({
   schema,
+  // TODO: set graphiql to false in production
   graphiql: true,
 }));
 
