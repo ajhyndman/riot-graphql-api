@@ -11,23 +11,13 @@ import {
 import fetch from 'node-fetch';
 
 import ChampionType from './types/champion';
-import RegionType from './types/region';
+import MatchType from './types/match';
 import SummonerType from './types/summoner';
 
 const QueryType = (region) => new GraphQLObjectType({
   name: 'Query',
-  description: '...',
+  description: 'Query against anything from the Official Riot REST API!',
   fields: () => ({
-    summoner: {
-      type: SummonerType,
-      args: {
-        name: {
-          type: new GraphQLNonNull(GraphQLString),
-        },
-      },
-      resolve: (root, { name }, { loaders }) =>
-        loaders.summoner.load(name),
-    },
     champion: {
       type: ChampionType,
       args: {
@@ -42,6 +32,26 @@ const QueryType = (region) => new GraphQLObjectType({
       type: new GraphQLList(ChampionType),
       resolve: (root, args, { loaders }) =>
         loaders.champions.load('all')
+    },
+    match: {
+      type: MatchType,
+      args: {
+        id: {
+          type: GraphQLInt,
+        },
+      },
+      resolve: (root, { id }, { loaders }) =>
+        loaders.match.load(id),
+    },
+    summoner: {
+      type: SummonerType,
+      args: {
+        name: {
+          type: new GraphQLNonNull(GraphQLString),
+        },
+      },
+      resolve: (root, { name }, { loaders }) =>
+        loaders.summonerName.load(name),
     },
   }),
 });
