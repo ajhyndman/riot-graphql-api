@@ -36,7 +36,7 @@ const QueryType = new GraphQLObjectType({
         fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.4/summoner/by-name/${name}?${KEY_PARAM}`)
           .then(response => response.json())
           .then(json => json[name.toLowerCase()]),
-    }
+    },
   }),
 });
 
