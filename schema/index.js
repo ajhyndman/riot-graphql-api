@@ -15,9 +15,10 @@ import RegionType from './types/region';
 import SummonerType from './types/summoner';
 import { RIOT_API_KEY } from '../secret';
 
+
 const KEY_PARAM = `api_key=${RIOT_API_KEY}`;
 
-const QueryType = new GraphQLObjectType({
+const QueryType = (region) => new GraphQLObjectType({
   name: 'Query',
   description: '...',
   fields: () => ({
@@ -27,11 +28,8 @@ const QueryType = new GraphQLObjectType({
         name: {
           type: new GraphQLNonNull(GraphQLString),
         },
-        region: {
-          type: new GraphQLNonNull(RegionType),
-        },
       },
-      resolve: (root, { name, region }) =>
+      resolve: (root, { name }) =>
         fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.4/summoner/by-name/${name}?${KEY_PARAM}`)
           .then(response => response.json())
           .then(json => json[name.toLowerCase()]),
@@ -42,22 +40,14 @@ const QueryType = new GraphQLObjectType({
         id: {
           type: new GraphQLNonNull(GraphQLInt),
         },
-        region: {
-          type: new GraphQLNonNull(RegionType),
-        },
       },
-      resolve: (root, { id, region }) =>
+      resolve: (root, { id }) =>
         fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/champion/${id}?champData=all&${KEY_PARAM}`)
           .then(response => response.json()),
     },
     champions: {
       type: new GraphQLList(ChampionType),
-      args: {
-        region: {
-          type: new GraphQLNonNull(RegionType),
-        },
-      },
-      resolve: (root, { region }) =>
+      resolve: () =>
         fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/champion?champData=all&${KEY_PARAM}`)
           .then(response => response.json())
           .then(json => Object.values(json.data)),
@@ -66,6 +56,6 @@ const QueryType = new GraphQLObjectType({
 });
 
 
-export default new GraphQLSchema({
-  query: QueryType,
+export default (region) => new GraphQLSchema({
+  query: QueryType(region),
 });

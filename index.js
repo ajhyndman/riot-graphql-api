@@ -7,7 +7,7 @@ import schema from './schema';
 const app = express();
 
 app.use(graphQLHTTP({
-  schema,
+  schema: schema('oce'),
   // TODO: set graphiql to false in production
   graphiql: true,
 }));
