@@ -21,10 +21,6 @@ const QueryType = new GraphQLObjectType({
   name: 'Query',
   description: '...',
   fields: () => ({
-    hello: {
-      type: GraphQLString,
-      resolve: () => 'Hello World',
-    },
     summoner: {
       type: SummonerType,
       args: {
