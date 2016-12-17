@@ -1,13 +1,18 @@
-const { graphql, buildSchema } = require('graphql');
+import express from 'express';
+import graphQLHTTP from 'express-graphql';
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+import schema from './schema';
 
-const root = { hello: () => 'Hello world!' };
 
-graphql(schema, '{ hello }', root).then((response) => {
-  console.log(response);
-});
+const app = express();
+
+app.use(graphQLHTTP({
+  schema,
+  graphiql: true,
+}));
+
+
+const port = 3000;
+
+app.listen(port);
+console.log('listening on port:', port);
