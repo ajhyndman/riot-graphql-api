@@ -13,10 +13,6 @@ import fetch from 'node-fetch';
 import ChampionType from './types/champion';
 import RegionType from './types/region';
 import SummonerType from './types/summoner';
-import { RIOT_API_KEY } from '../secret';
-
-
-const KEY_PARAM = `api_key=${RIOT_API_KEY}`;
 
 const QueryType = (region) => new GraphQLObjectType({
   name: 'Query',
@@ -29,10 +25,8 @@ const QueryType = (region) => new GraphQLObjectType({
           type: new GraphQLNonNull(GraphQLString),
         },
       },
-      resolve: (root, { name }) =>
-        fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.4/summoner/by-name/${name}?${KEY_PARAM}`)
-          .then(response => response.json())
-          .then(json => json[name.toLowerCase()]),
+      resolve: (root, { name }, { loaders }) =>
+        loaders.summoner.load(name),
     },
     champion: {
       type: ChampionType,
@@ -41,16 +35,13 @@ const QueryType = (region) => new GraphQLObjectType({
           type: new GraphQLNonNull(GraphQLInt),
         },
       },
-      resolve: (root, { id }) =>
-        fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/champion/${id}?champData=all&${KEY_PARAM}`)
-          .then(response => response.json()),
+      resolve: (root, { id }, { loaders }) =>
+        loaders.champion.load(id),
     },
     champions: {
       type: new GraphQLList(ChampionType),
-      resolve: () =>
-        fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/champion?champData=all&${KEY_PARAM}`)
-          .then(response => response.json())
-          .then(json => Object.values(json.data)),
+      resolve: (root, args, { loaders }) =>
+        loaders.champions.load('all')
     },
   }),
 });
