@@ -1,5 +1,6 @@
 import {
   GraphQLEnumType,
+  GraphQLInt,
   GraphQLList,
   GraphQLNonNull,
   GraphQLObjectType,
@@ -38,6 +39,20 @@ const QueryType = new GraphQLObjectType({
         fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.4/summoner/by-name/${name}?${KEY_PARAM}`)
           .then(response => response.json())
           .then(json => json[name.toLowerCase()]),
+    },
+    champion: {
+      type: ChampionType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLInt),
+        },
+        region: {
+          type: new GraphQLNonNull(RegionType),
+        },
+      },
+      resolve: (root, { id, region }) =>
+        fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/champion/${id}?champData=all&${KEY_PARAM}`)
+          .then(response => response.json()),
     },
     champions: {
       type: new GraphQLList(ChampionType),
