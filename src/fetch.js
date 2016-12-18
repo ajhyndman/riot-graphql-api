@@ -10,7 +10,11 @@ export default (...args) => {
   log.debug({ args: [url, ...(args.slice(1))] }, 'FETCH');
   return fetch(...args)
     .then((res) => {
-      log.info({ res: { header: res.headers, statusCode: res.status, url } }, 'RESPONSE');
+      if (res.status === 200) {
+        log.info({ res: { header: res.headers, statusCode: res.status, url } }, 'RESPONSE');
+      } else {
+        log.warn({ res: { header: res.headers, statusCode: res.status, url } }, 'RESPONSE');
+      }
       return new Promise(resolve => resolve(res));
     });
 };
