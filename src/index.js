@@ -11,11 +11,7 @@ import matchLoader from './loaders/match';
 import summonerByIDLoader from './loaders/summonerByID';
 import summonerByNameLoader from './loaders/summoner';
 import schema from './schema';
-
-
-// TODO: Set the region you wish to query against
-const REGION = 'oce';
-const PORT = 3000;
+import { PORT, REGION } from '../config';
 
 
 const app = express();

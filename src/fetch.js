@@ -3,6 +3,7 @@ import { pick } from 'ramda';
 
 import log from './log';
 import { RIOT_API_KEY } from '../secret';
+import { RETRY_TIMEOUT } from '../config';
 
 
 /**
@@ -37,7 +38,7 @@ export default function wrappedFetch(...args) {
             () => wrappedFetch(...args)
               .then(resolve)
               .catch(reject),
-            10000
+            RETRY_TIMEOUT
           );
         });
       } else {
