@@ -281,10 +281,7 @@ const ParticipantType = new GraphQLObjectType({
       resolve: (participant, args, { loaders }) =>
         loaders.champion.load(participant.championId),
     },
-    highestAchievedSeasonTier: {
-      type: GraphQLString }
-
-      ,
+    highestAchievedSeasonTier: { type: GraphQLString },
     // masteries	List[Mastery]	List of mastery information
     summoner: {
       type: SummonerType,
@@ -326,7 +323,10 @@ export default new GraphQLObjectType({
       type: GraphQLString,
       description: 'Match version',
     },
-    // participantIdentities	List[ParticipantIdentity]	Participant identity information
+    participant: {
+      type: ParticipantType,
+      definition: 'Look up a participant by summoner name',
+    },
     participants: {
       type: new GraphQLList(ParticipantType),
       definition: 'Participant information',
@@ -334,7 +334,7 @@ export default new GraphQLObjectType({
         zipWith(
           (participant, participantIdentity) => ({
             ...participant,
-            summonerId: participantIdentity.player.summonerId,
+            summonerId: participantIdentity.player && participantIdentity.player.summonerId,
           }),
           sortBy(prop('participantId'), match.participants),
           sortBy(prop('participantId'), match.participantIdentities),
@@ -350,7 +350,10 @@ export default new GraphQLObjectType({
       type: GraphQLString,
       description: 'Region where the match was played',
     },
-    // season	string	Season match was played (Legal values: PRESEASON3, SEASON3, PRESEASON2014, SEASON2014, PRESEASON2015, SEASON2015, PRESEASON2016, SEASON2016, PRESEASON2017, SEASON2017)
+    season: {
+      type: GraphQLString,
+      description: 'Season match was played (Legal values: PRESEASON3, SEASON3, PRESEASON2014, SEASON2014, PRESEASON2015, SEASON2015, PRESEASON2016, SEASON2016, PRESEASON2017, SEASON2017)',
+    },
     // teams	List[Team]	Team information
     // timeline	Timeline	Match timeline data (not included by default)
   }),

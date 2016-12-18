@@ -1,15 +1,29 @@
 import DataLoader from 'dataloader';
+import { flatten, map, splitEvery } from 'ramda';
 
 import fetch from '../fetch';
 import key from './key';
 
 
-const getSummonersByID = (region) => (IDs) =>
-  fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.4/summoner/${IDs.join(',')}?${key}`)
+/**
+ * Get up to 40 summoners in one API call.
+ */
+const getSummonersById = (region) => (ids) =>
+  fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.4/summoner/${ids.join(',')}?${key}`)
     .then(response => response.json())
-    .then(json => IDs.map(id => json[id]))
+    .then(json => ids.map(id => json[id]))
     .catch(err => { throw err; });
 
 export default (region) => new DataLoader(
-  getSummonersByID(region)
+  (ids) => new Promise((resolve) => {
+    Promise.all(
+      // Group summoner IDs into sets of 40 IDs, and pass those to our fetch call.
+      map(getSummonersById(region), splitEvery(40, ids))
+    )
+      // Once all fetch calls have resolved, flatten the result back into an
+      // array matching the order of the original ID list.
+      .then((groupedData) => {
+        resolve(flatten(groupedData));
+      });
+  })
 );
