@@ -281,10 +281,7 @@ const ParticipantType = new GraphQLObjectType({
       resolve: (participant, args, { loaders }) =>
         loaders.champion.load(participant.championId),
     },
-    highestAchievedSeasonTier: {
-      type: GraphQLString }
-
-      ,
+    highestAchievedSeasonTier: { type: GraphQLString },
     // masteries	List[Mastery]	List of mastery information
     summoner: {
       type: SummonerType,
@@ -334,7 +331,7 @@ export default new GraphQLObjectType({
         zipWith(
           (participant, participantIdentity) => ({
             ...participant,
-            summonerId: participantIdentity.player.summonerId,
+            summonerId: participantIdentity.player && participantIdentity.player.summonerId,
           }),
           sortBy(prop('participantId'), match.participants),
           sortBy(prop('participantId'), match.participantIdentities),
