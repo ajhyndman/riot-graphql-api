@@ -1,5 +1,7 @@
 import express from 'express';
+import favicon from 'serve-favicon';
 import graphQLHTTP from 'express-graphql';
+import path from 'path';
 
 import schema from './schema';
 import championLoader from './loaders/champion';
@@ -15,6 +17,8 @@ const PORT = 3000;
 
 
 const app = express();
+
+app.use(favicon(path.join(__dirname, 'favicon.png')));
 
 app.use(graphQLHTTP(request => {
   const loaders = {
