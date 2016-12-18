@@ -16,7 +16,7 @@
     "ramda": "^0.22.1"
   },
   "scripts": {
-    "start": "babel-node src/index.js"
+    "start": "babel-node src/index.js | bunyan -o short"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

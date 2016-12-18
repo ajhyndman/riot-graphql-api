@@ -1,6 +1,6 @@
 import DataLoader from 'dataloader';
-import fetch from 'node-fetch';
 
+import fetch from '../fetch';
 import key from './key';
 
 
