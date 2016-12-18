@@ -12,12 +12,13 @@
     "express": "^4.14.0",
     "express-graphql": "^0.6.1",
     "graphql": "^0.8.2",
+    "morgan": "^1.7.0",
     "node-fetch": "^1.6.3",
     "ramda": "^0.22.1",
     "serve-favicon": "^2.3.2"
   },
   "scripts": {
-    "start": "babel-node src/index.js | bunyan -o short"
+    "start": "babel-node src/index.js | bunyan"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

@@ -9,6 +9,7 @@ import {
   graphql,
 } from 'graphql';
 import fetch from 'node-fetch';
+import { map, prop } from 'ramda';
 
 import ChampionType from './types/champion';
 import MatchType from './types/match';
@@ -42,6 +43,21 @@ const QueryType = (region) => new GraphQLObjectType({
       },
       resolve: (root, { id }, { loaders }) =>
         loaders.match.load(id),
+    },
+    matchList: {
+      type: new GraphQLList(MatchType),
+      args: {
+        summonerId: { type: new GraphQLNonNull(GraphQLInt) },
+        start: { type: new GraphQLNonNull(GraphQLInt) },
+        end: { type: new GraphQLNonNull(GraphQLInt) },
+      },
+      resolve: (root, { summonerId, start, end }, { loaders }) =>
+        loaders.matchList.load(summonerId)
+        .then((matchList) =>
+          loaders.match.loadMany(
+            map(prop('matchId'), matchList.slice(start, end))
+          )
+        ),
     },
     summoner: {
       type: SummonerType,
