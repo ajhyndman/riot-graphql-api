@@ -323,10 +323,10 @@ export default new GraphQLObjectType({
       type: GraphQLString,
       description: 'Match version',
     },
-    participant: {
-      type: ParticipantType,
-      definition: 'Look up a participant by summoner name',
-    },
+    // participant: {
+    //   type: ParticipantType,
+    //   definition: 'Look up a participant by summoner name',
+    // },
     participants: {
       type: new GraphQLList(ParticipantType),
       definition: 'Participant information',
