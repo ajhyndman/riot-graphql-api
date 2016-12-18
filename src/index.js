@@ -33,5 +33,5 @@ app.use(graphQLHTTP(request => {
 }));
 
 app.listen(PORT, () => {
-  console.log('RiotGraphQL is listening on port:', PORT)
+  console.log('Riot GraphQL API is listening on port:', PORT)
 });
