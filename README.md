@@ -1,6 +1,8 @@
 # Riot GraphQL API
 A GraphQL wrapper for the official Riot Games REST API
 
+![image](https://cloud.githubusercontent.com/assets/11449340/21294116/fe812258-c589-11e6-85ff-c5f57e070518.png)
+
 ## Usage
 
 This repository is an express-based proxy server for the official Riot API.
