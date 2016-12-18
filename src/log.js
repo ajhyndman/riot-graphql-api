@@ -1,4 +1,7 @@
 import bunyan from 'bunyan';
 
 
-export default bunyan.createLogger({ name: 'riot-graphql-api' });
+export default bunyan.createLogger({
+  level: 'trace',
+  name: 'riot-graphql-api',
+});
