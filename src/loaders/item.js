@@ -8,14 +8,11 @@ import key from './key';
 // assume that the list of items never changes, and cache it once.
 let allItems;
 
-const getAllItems = (region) => (ids) => {
+const getAllItems = (region) => async function(ids) {
   if (!allItems) {
-    return fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/item?itemListData=all&${key}`)
+    allItems = await fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/item?itemListData=all&${key}`)
       .then(response => response.json())
-      .then(json => {
-        allItems = json.data;
-        return map((id) => allItems[id], ids)
-      })
+      .then(json => json.data)
       .catch(err => { throw err; });
   }
   return new Promise(
