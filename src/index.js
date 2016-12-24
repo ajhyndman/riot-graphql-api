@@ -6,6 +6,7 @@ import path from 'path';
 
 import championLoader from './loaders/champion';
 import championsLoader from './loaders/champions';
+import itemLoader from './loaders/item';
 import matchListLoader from './loaders/matchList';
 import matchLoader from './loaders/match';
 import summonerByIDLoader from './loaders/summonerByID';
@@ -25,6 +26,7 @@ app.use(favicon(path.join(__dirname, 'favicon.png')));
 const loaders = {
   champion: championLoader(REGION),
   champions: championsLoader(REGION),
+  item: itemLoader(REGION),
   match: matchLoader(REGION),
   matchList: matchListLoader(REGION),
   summonerName: summonerByNameLoader(REGION),

@@ -12,6 +12,7 @@ import fetch from 'node-fetch';
 import { map, prop } from 'ramda';
 
 import ChampionType from './types/champion';
+import ItemType from './types/item';
 import MatchType from './types/match';
 import SummonerType from './types/summoner';
 
@@ -33,6 +34,16 @@ const QueryType = (region) => new GraphQLObjectType({
       type: new GraphQLList(ChampionType),
       resolve: (root, args, { loaders }) =>
         loaders.champions.load('all')
+    },
+    item: {
+      type: ItemType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLInt)
+        },
+      },
+      resolve: (root, { id }, { loaders }) =>
+        loaders.item.load(id),
     },
     match: {
       type: MatchType,

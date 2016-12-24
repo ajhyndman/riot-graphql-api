@@ -10,6 +10,7 @@ import { prop, sortBy, zipWith } from 'ramda';
 
 import ChampionType from './champion';
 import DateType from './date';
+import ItemType from './item';
 import SummonerType from './summoner';
 
 
@@ -74,32 +75,46 @@ const ParticipantStatsType = new GraphQLObjectType({
       description: 'Number of inhibitor kills'
     },
     item0: {
-      type: GraphQLInt,
-      description: 'First item ID'
+      type: ItemType,
+      description: 'First item',
+      resolve: (match, args, { loaders }) =>
+        loaders.item.load(match.item0),
     },
     item1: {
-      type: GraphQLInt,
-      description: 'Second item ID'
+      type: ItemType,
+      description: 'Second item',
+      resolve: (match, args, { loaders }) =>
+        loaders.item.load(match.item1),
     },
     item2: {
-      type: GraphQLInt,
-      description: 'Third item ID'
+      type: ItemType,
+      description: 'Third item',
+      resolve: (match, args, { loaders }) =>
+        loaders.item.load(match.item2),
     },
     item3: {
-      type: GraphQLInt,
-      description: 'Fourth item ID'
+      type: ItemType,
+      description: 'Fourth item',
+      resolve: (match, args, { loaders }) =>
+        loaders.item.load(match.item3),
     },
     item4: {
-      type: GraphQLInt,
-      description: 'Fifth item ID'
+      type: ItemType,
+      description: 'Fifth item',
+      resolve: (match, args, { loaders }) =>
+        loaders.item.load(match.item4),
     },
     item5: {
-      type: GraphQLInt,
-      description: 'Sixth item ID'
+      type: ItemType,
+      description: 'Sixth item',
+      resolve: (match, args, { loaders }) =>
+        loaders.item.load(match.item5),
     },
     item6: {
-      type: GraphQLInt,
-      description: 'Seventh item ID'
+      type: ItemType,
+      description: 'Seventh item',
+      resolve: (match, args, { loaders }) =>
+        loaders.item.load(match.item6),
     },
     killingSprees: {
       type: GraphQLInt,
