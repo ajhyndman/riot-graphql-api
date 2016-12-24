@@ -30,11 +30,6 @@ const QueryType = (region) => new GraphQLObjectType({
       resolve: (root, { id }, { loaders }) =>
         loaders.champion.load(id),
     },
-    champions: {
-      type: new GraphQLList(ChampionType),
-      resolve: (root, args, { loaders }) =>
-        loaders.champions.load('all')
-    },
     item: {
       type: ItemType,
       args: {
