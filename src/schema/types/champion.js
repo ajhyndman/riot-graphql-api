@@ -8,6 +8,7 @@ import {
 } from 'graphql';
 
 import ImageType from './image';
+import ItemType from './item';
 
 
 // -- Inner Types --
@@ -17,8 +18,11 @@ const BlockItemType = new GraphQLObjectType({
   description: 'This object contains champion recommended block item data',
   fields: () => ({
     count: { type: GraphQLInt },
-    // TODO: This should resolve to an actual item
-    id: { type: GraphQLInt },
+    item: {
+      type: ItemType,
+      resolve: (blockItem, args, { loaders }) =>
+        loaders.item.load(blockItem.id),
+    },
   })
 });
 
