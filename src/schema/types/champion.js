@@ -99,6 +99,7 @@ const SkinType = new GraphQLObjectType({
   name: 'Skin',
   description: 'This object contains champion skin data',
   fields: () => ({
+    // TODO: Resolve skin data
     id: { type: GraphQLInt },
     name: { type: GraphQLString },
     num: { type: GraphQLInt },
