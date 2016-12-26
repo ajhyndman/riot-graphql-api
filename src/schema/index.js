@@ -16,6 +16,7 @@ import ItemType from './types/item';
 import MapType from './types/map';
 import MasteryType from './types/mastery';
 import MatchType from './types/match';
+import RuneType from './types/rune';
 import SummonerType from './types/summoner';
 
 const QueryType = (region) => new GraphQLObjectType({
@@ -86,6 +87,16 @@ const QueryType = (region) => new GraphQLObjectType({
             map(prop('matchId'), matchList.slice(start, end))
           )
         ),
+    },
+    rune: {
+      type: RuneType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLInt),
+        },
+      },
+      resolve: (root, { id }, { loaders }) =>
+        loaders.rune.load(id),
     },
     summoner: {
       type: SummonerType,

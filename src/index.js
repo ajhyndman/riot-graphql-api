@@ -10,6 +10,7 @@ import mapLoader from './loaders/map';
 import masteryLoader from './loaders/mastery';
 import matchListLoader from './loaders/matchList';
 import matchLoader from './loaders/match';
+import runeLoader from './loaders/rune';
 import summonerByIDLoader from './loaders/summonerByID';
 import summonerByNameLoader from './loaders/summoner';
 import schema from './schema';
@@ -31,6 +32,7 @@ const loaders = {
   mastery: masteryLoader(REGION),
   match: matchLoader(REGION),
   matchList: matchListLoader(REGION),
+  rune: runeLoader(REGION),
   summonerName: summonerByNameLoader(REGION),
   summoner: summonerByIDLoader(REGION),
 };
