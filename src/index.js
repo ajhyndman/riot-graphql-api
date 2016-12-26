@@ -13,6 +13,7 @@ import matchLoader from './loaders/match';
 import runeLoader from './loaders/rune';
 import summonerByIDLoader from './loaders/summonerByID';
 import summonerByNameLoader from './loaders/summoner';
+import summonerSpellLoader from './loaders/summonerSpell';
 import schema from './schema';
 import { PORT, REGION } from '../config';
 
@@ -35,6 +36,7 @@ const loaders = {
   rune: runeLoader(REGION),
   summonerName: summonerByNameLoader(REGION),
   summoner: summonerByIDLoader(REGION),
+  summonerSpell: summonerSpellLoader(REGION),
 };
 
 app.use(graphQLHTTP({

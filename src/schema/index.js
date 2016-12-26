@@ -18,6 +18,8 @@ import MasteryType from './types/mastery';
 import MatchType from './types/match';
 import RuneType from './types/rune';
 import SummonerType from './types/summoner';
+import SummonerSpellType from './types/summonerSpell';
+
 
 const QueryType = (region) => new GraphQLObjectType({
   name: 'Query',
@@ -108,6 +110,16 @@ const QueryType = (region) => new GraphQLObjectType({
       resolve: (root, { name }, { loaders }) =>
         loaders.summonerName.load(name),
     },
+    summonerSpell: {
+      type: SummonerSpellType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLInt),
+        },
+      },
+      resolve: (root, { id }, { loaders }) =>
+        loaders.summonerSpell.load(id),
+    }
   }),
 });
 

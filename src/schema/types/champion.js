@@ -9,6 +9,8 @@ import {
 
 import ImageType from './image';
 import ItemType from './item';
+import LevelTipType from './levelTip';
+import SpellVarsType from './spellVars';
 
 
 // -- Inner Types --
@@ -34,27 +36,6 @@ const BlockType = new GraphQLObjectType({
     recMath: { type: GraphQLBoolean },
     type: { type: GraphQLString },
   }),
-});
-
-const LevelTipType = new GraphQLObjectType({
-  name: 'LevelTip',
-  description: 'This object contains champion level tip data',
-  fields: () => ({
-    effect: { type: new GraphQLList(GraphQLString) },
-    label: { type: new GraphQLList(GraphQLString) },
-  }),
-})
-
-const SpellVarsType = new GraphQLObjectType({
-  name: 'SpellVars',
-  description: 'This object contains spell vars data',
-  fields: () => ({
-    coeff: { type: new GraphQLList(GraphQLFloat) },
-    dyn: { type: GraphQLString },
-    key: { type: GraphQLString },
-    link: { type: GraphQLString },
-    ranksWith: { type: GraphQLString },
-  })
 });
 
 // -- Field Types --

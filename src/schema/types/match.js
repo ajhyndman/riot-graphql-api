@@ -12,7 +12,10 @@ import ChampionType from './champion';
 import DateType from './date';
 import ItemType from './item';
 import MasteryDistributionType from './masteryDistribution';
+import RuneDistributionType from './runeDistribution';
+import RuneType from './rune';
 import SummonerType from './summoner';
+import SummonerSpellType from './summonerSpell';
 
 
 const ParticipantStatsType = new GraphQLObjectType({
@@ -308,9 +311,22 @@ const ParticipantType = new GraphQLObjectType({
       resolve: (participant, args, { loaders }) =>
         loaders.summoner.load(participant.summonerId),
     },
-    // runes	List[Rune]	List of rune information
-    // spell1Id	int	First summoner spell ID
-    // spell2Id	int	Second summoner spell ID
+    runes: {
+      type: new GraphQLList(RuneDistributionType),
+      description: 'List of rune information',
+    },
+    spell1: {
+      type: SummonerSpellType,
+      description: 'First summoner spell',
+      resolve: (participant, args, { loaders }) =>
+        loaders.summonerSpell.load(participant.spell1Id),
+    },
+    spell2: {
+      type: SummonerSpellType,
+      description: 'Second summoner spell',
+      resolve: (participant, args, { loaders }) =>
+        loaders.summonerSpell.load(participant.spell2Id),
+    },
     stats: { type: ParticipantStatsType },
     // teamId	int	Team ID
     // timeline	ParticipantTimeline	Timeline data. Delta fields refer to values for the specified period (e.g., the gold per minute over the first 10 minutes of the game versus the second 20 minutes of the game. Diffs fields refer to the deltas versus the calculated lane opponent(s).
