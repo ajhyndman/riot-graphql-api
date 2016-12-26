@@ -13,6 +13,7 @@ import { map, prop } from 'ramda';
 
 import ChampionType from './types/champion';
 import ItemType from './types/item';
+import MapType from './types/map';
 import MatchType from './types/match';
 import SummonerType from './types/summoner';
 
@@ -40,11 +41,21 @@ const QueryType = (region) => new GraphQLObjectType({
       resolve: (root, { id }, { loaders }) =>
         loaders.item.load(id),
     },
+    map: {
+      type: MapType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLInt)
+        },
+      },
+      resolve: (root, { id }, { loaders }) =>
+        loaders.map.load(id),
+    },
     match: {
       type: MatchType,
       args: {
         id: {
-          type: GraphQLInt,
+          type: new GraphQLNonNull(GraphQLInt),
         },
       },
       resolve: (root, { id }, { loaders }) =>
