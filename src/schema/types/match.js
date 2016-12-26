@@ -11,6 +11,7 @@ import { prop, sortBy, zipWith } from 'ramda';
 import ChampionType from './champion';
 import DateType from './date';
 import ItemType from './item';
+import MasteryDistributionType from './masteryDistribution';
 import SummonerType from './summoner';
 
 
@@ -287,6 +288,7 @@ const ParticipantStatsType = new GraphQLObjectType({
   }),
 });
 
+// TODO: Link up related data
 const ParticipantType = new GraphQLObjectType({
   name: 'Participant',
   description: 'This object contains match participant information',
@@ -297,7 +299,10 @@ const ParticipantType = new GraphQLObjectType({
         loaders.champion.load(participant.championId),
     },
     highestAchievedSeasonTier: { type: GraphQLString },
-    // masteries	List[Mastery]	List of mastery information
+    masteries: {
+      type: new GraphQLList(MasteryDistributionType),
+      description: 'List of mastery information'
+    },
     summoner: {
       type: SummonerType,
       resolve: (participant, args, { loaders }) =>
@@ -338,10 +343,6 @@ export default new GraphQLObjectType({
       type: GraphQLString,
       description: 'Match version',
     },
-    // participant: {
-    //   type: ParticipantType,
-    //   definition: 'Look up a participant by summoner name',
-    // },
     participants: {
       type: new GraphQLList(ParticipantType),
       definition: 'Participant information',

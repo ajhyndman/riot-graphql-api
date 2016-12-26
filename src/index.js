@@ -7,6 +7,7 @@ import path from 'path';
 import championLoader from './loaders/champion';
 import itemLoader from './loaders/item';
 import mapLoader from './loaders/map';
+import masteryLoader from './loaders/mastery';
 import matchListLoader from './loaders/matchList';
 import matchLoader from './loaders/match';
 import summonerByIDLoader from './loaders/summonerByID';
@@ -27,6 +28,7 @@ const loaders = {
   champion: championLoader(REGION),
   item: itemLoader(REGION),
   map: mapLoader(REGION),
+  mastery: masteryLoader(REGION),
   match: matchLoader(REGION),
   matchList: matchListLoader(REGION),
   summonerName: summonerByNameLoader(REGION),

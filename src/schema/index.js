@@ -14,6 +14,7 @@ import { map, prop } from 'ramda';
 import ChampionType from './types/champion';
 import ItemType from './types/item';
 import MapType from './types/map';
+import MasteryType from './types/mastery';
 import MatchType from './types/match';
 import SummonerType from './types/summoner';
 
@@ -50,6 +51,16 @@ const QueryType = (region) => new GraphQLObjectType({
       },
       resolve: (root, { id }, { loaders }) =>
         loaders.map.load(id),
+    },
+    mastery: {
+      type: MasteryType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLInt)
+        },
+      },
+      resolve: (root, { id }, { loaders }) =>
+        loaders.mastery.load(id),
     },
     match: {
       type: MatchType,
