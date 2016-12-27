@@ -29,28 +29,32 @@ app.use(morgan('dev'));
 app.use(favicon(path.join(__dirname, 'favicon.png')));
 
 // initialize app with region setting
-const loaders = {
+const staticLoaders = {
   champion: championLoader(REGION),
-  currentGame: currentGameLoader(REGION),
   item: itemLoader(REGION),
   map: mapLoader(REGION),
   mastery: masteryLoader(REGION),
-  masteryPages: masteryPagesLoader(REGION),
   match: matchLoader(REGION),
-  matchList: matchListLoader(REGION),
   rune: runeLoader(REGION),
-  runePages: runePagesLoader(REGION),
   summonerName: summonerByNameLoader(REGION),
   summoner: summonerByIDLoader(REGION),
   summonerSpell: summonerSpellLoader(REGION),
 };
 
-app.use(graphQLHTTP({
-  context: { loaders },
+app.use(graphQLHTTP(request => ({
+  context: {
+    loaders: {
+      ...staticLoaders,
+      currentGame: currentGameLoader(REGION),
+      matchList: matchListLoader(REGION),
+      masteryPages: masteryPagesLoader(REGION),
+      runePages: runePagesLoader(REGION),
+    },
+  },
   schema: schema(REGION),
   // TODO: set graphiql to false in production
   graphiql: true,
-}));
+})));
 
 app.listen(PORT, () => {
   console.log('Riot GraphQL API is listening on port:', PORT)
