@@ -9,6 +9,7 @@ import {
 import { prop, sortBy, zipWith } from 'ramda';
 
 import DateType from './date';
+import MapType from './map';
 import ParticipantType from './participant';
 
 
@@ -17,9 +18,11 @@ export default new GraphQLObjectType({
   description: 'This object contains match detail information',
   fields: () => ({
     // TODO: link map information here
-    mapId: {
-      type: GraphQLInt,
-      description: 'Match map ID',
+    map: {
+      type: MapType,
+      description: 'Match map',
+      resolve: (match, args, { loaders }) =>
+        loaders.map.load(match.mapId),
     },
     matchCreation: {
       type: DateType,
