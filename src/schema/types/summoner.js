@@ -7,15 +7,20 @@ import {
 } from 'graphql';
 import { map, prop } from 'ramda';
 
+import MasteryPageType from './masteryPage';
 import MatchType from './match';
 
 export default new GraphQLObjectType({
   name: 'Summoner',
   description: 'represents a summoner',
-
   fields: () => ({
     id: {
       type: GraphQLInt,
+    },
+    masteryPages: {
+      type: new GraphQLList(MasteryPageType),
+      resolve: (summoner, args, { loaders }) =>
+        loaders.masteryPages.load(summoner.id),
     },
     matchList: {
       type: new GraphQLList(MatchType),

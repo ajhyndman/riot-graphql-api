@@ -13,7 +13,9 @@ export default new GraphQLObjectType({
     mastery: {
       type: MasteryType,
       resolve: (masteryDistribution, args, { loaders }) =>
-        loaders.mastery.load(masteryDistribution.masteryId),
+        loaders.mastery.load(
+          masteryDistribution.masteryId || masteryDistribution.id
+        ),
     },
     rank: { type: GraphQLInt },
   }),

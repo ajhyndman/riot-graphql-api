@@ -8,6 +8,7 @@ import championLoader from './loaders/champion';
 import itemLoader from './loaders/item';
 import mapLoader from './loaders/map';
 import masteryLoader from './loaders/mastery';
+import masteryPagesLoader from './loaders/masteryPages';
 import matchListLoader from './loaders/matchList';
 import matchLoader from './loaders/match';
 import runeLoader from './loaders/rune';
@@ -31,6 +32,7 @@ const loaders = {
   item: itemLoader(REGION),
   map: mapLoader(REGION),
   mastery: masteryLoader(REGION),
+  masteryPages: masteryPagesLoader(REGION),
   match: matchLoader(REGION),
   matchList: matchListLoader(REGION),
   rune: runeLoader(REGION),
