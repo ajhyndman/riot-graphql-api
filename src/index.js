@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import path from 'path';
 
 import championLoader from './loaders/champion';
+import currentGameLoader from './loaders/currentGame';
 import itemLoader from './loaders/item';
 import mapLoader from './loaders/map';
 import masteryLoader from './loaders/mastery';
@@ -30,6 +31,7 @@ app.use(favicon(path.join(__dirname, 'favicon.png')));
 // initialize app with region setting
 const loaders = {
   champion: championLoader(REGION),
+  currentGame: currentGameLoader(REGION),
   item: itemLoader(REGION),
   map: mapLoader(REGION),
   mastery: masteryLoader(REGION),

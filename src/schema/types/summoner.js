@@ -7,6 +7,7 @@ import {
 } from 'graphql';
 import { map, prop } from 'ramda';
 
+import CurrentGameType from './currentGame';
 import MasteryPageType from './masteryPage';
 import MatchType from './match';
 import RunePageType from './runePage';
@@ -15,6 +16,11 @@ export default new GraphQLObjectType({
   name: 'Summoner',
   description: 'represents a summoner',
   fields: () => ({
+    currentGame: {
+      type: CurrentGameType,
+      resolve: (summoner, args, { loaders }) =>
+        loaders.currentGame.load(summoner.id),
+    },
     id: {
       type: GraphQLInt,
     },
