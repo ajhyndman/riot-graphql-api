@@ -12,6 +12,7 @@ import masteryPagesLoader from './loaders/masteryPages';
 import matchListLoader from './loaders/matchList';
 import matchLoader from './loaders/match';
 import runeLoader from './loaders/rune';
+import runePagesLoader from './loaders/runePages';
 import summonerByIDLoader from './loaders/summonerByID';
 import summonerByNameLoader from './loaders/summoner';
 import summonerSpellLoader from './loaders/summonerSpell';
@@ -36,6 +37,7 @@ const loaders = {
   match: matchLoader(REGION),
   matchList: matchListLoader(REGION),
   rune: runeLoader(REGION),
+  runePages: runePagesLoader(REGION),
   summonerName: summonerByNameLoader(REGION),
   summoner: summonerByIDLoader(REGION),
   summonerSpell: summonerSpellLoader(REGION),

@@ -17,6 +17,7 @@ import MapType from './types/map';
 import MasteryType from './types/mastery';
 import MatchType from './types/match';
 import RuneType from './types/rune';
+import RunePageType from './types/runePage';
 import SummonerType from './types/summoner';
 import SummonerSpellType from './types/summonerSpell';
 

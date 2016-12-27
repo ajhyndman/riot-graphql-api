@@ -9,6 +9,7 @@ import { map, prop } from 'ramda';
 
 import MasteryPageType from './masteryPage';
 import MatchType from './match';
+import RunePageType from './runePage';
 
 export default new GraphQLObjectType({
   name: 'Summoner',
@@ -44,6 +45,11 @@ export default new GraphQLObjectType({
     },
     revisionDate: {
       type: GraphQLInt,
+    },
+    runePages: {
+      type: new GraphQLList(RunePageType),
+      resolve: (summoner, args, { loaders }) =>
+        loaders.runePages.load(summoner.id),
     },
     summonerLevel: {
       type: GraphQLInt,
