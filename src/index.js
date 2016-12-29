@@ -28,7 +28,10 @@ app.use(morgan('dev'));
 
 app.use(favicon(path.join(__dirname, 'favicon.png')));
 
-// initialize app with region setting
+// Initialize app with region setting.
+
+// Static Loaders have a cache that lasts for the lifetime of the server
+// instance.
 const staticLoaders = {
   champion: championLoader(REGION),
   item: itemLoader(REGION),
@@ -43,6 +46,8 @@ const staticLoaders = {
 
 app.use(graphQLHTTP(request => ({
   context: {
+    // Dynamic Loaders, initialised here, have a cache that is regenereated on
+    // each request.
     loaders: {
       ...staticLoaders,
       currentGame: currentGameLoader(REGION),
