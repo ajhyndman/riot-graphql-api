@@ -8,6 +8,7 @@ import {
 import { map, prop } from 'ramda';
 
 import MatchType from './match';
+import QueueStatsType from './queueStats';
 
 export default new GraphQLObjectType({
   name: 'Summoner',
@@ -39,6 +40,14 @@ export default new GraphQLObjectType({
     },
     revisionDate: {
       type: GraphQLInt,
+    },
+    queueStats: {
+      type: QueueStatsType,
+      args: {
+        mode: { type: new GraphQLNonNull(GraphQLString) }, // TODO: change to enum
+      },
+      resolve: (summoner, { mode }, { loaders }) =>
+        loaders.queueStats(mode).load(summoner.id),
     },
     summonerLevel: {
       type: GraphQLInt,
