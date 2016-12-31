@@ -20,7 +20,7 @@ const QueueStatsType = new GraphQLObjectType({
       aggregatedStats: { type: AggregatedStatsType },
       wins: { type: GraphQLInt },
       losses: { type: GraphQLInt },
-      // Mode is a string like, AramUnranked5x5 Ascension URF RankedFlexSR
+      // Mode is a string like AramUnranked5x5, Ascension, URF, RankedFlexSR
       mode: { type: GraphQLString },
   }),
 });
