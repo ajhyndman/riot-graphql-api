@@ -12,6 +12,7 @@ import masteryLoader from './loaders/mastery';
 import masteryPagesLoader from './loaders/masteryPages';
 import matchListLoader from './loaders/matchList';
 import matchLoader from './loaders/match';
+import queueStatsLoader from './loaders/queueStats';
 import runeLoader from './loaders/rune';
 import runePagesLoader from './loaders/runePages';
 import summonerByIDLoader from './loaders/summonerByID';
@@ -38,6 +39,7 @@ const staticLoaders = {
   map: mapLoader(REGION),
   mastery: masteryLoader(REGION),
   match: matchLoader(REGION),
+  queueStats: queueStatsLoader(REGION),
   rune: runeLoader(REGION),
   summonerName: summonerByNameLoader(REGION),
   summoner: summonerByIDLoader(REGION),
