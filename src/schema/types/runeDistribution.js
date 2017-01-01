@@ -15,6 +15,10 @@ export default new GraphQLObjectType({
       resolve: (runeDistribution, args, { loaders }) =>
         loaders.rune.load(runeDistribution.runeId),
     },
-    rank: { type: GraphQLInt },
+    count: {
+      type: GraphQLInt,
+      resolve: (runeDistribution, args, { loaders }) =>
+        runeDistribution.rank || runeDistribution.count
+    },
   }),
 });
