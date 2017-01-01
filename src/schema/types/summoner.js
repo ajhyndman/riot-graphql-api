@@ -10,6 +10,7 @@ import { map, prop } from 'ramda';
 import CurrentGameType from './currentGame';
 import MasteryPageType from './masteryPage';
 import MatchType from './match';
+import QueueStatsType from './queueStats';
 import RunePageType from './runePage';
 
 export default new GraphQLObjectType({
@@ -52,6 +53,13 @@ export default new GraphQLObjectType({
     revisionDate: {
       type: GraphQLInt,
     },
+    queueStats: {
+      type: QueueStatsType,
+      args: {
+        mode: { type: new GraphQLNonNull(GraphQLString) }, // TODO: change to enum
+      },
+      resolve: (summoner, { mode }, { loaders }) =>
+        loaders.queueStats(mode).load(summoner.id),
     runePages: {
       type: new GraphQLList(RunePageType),
       resolve: (summoner, args, { loaders }) =>
