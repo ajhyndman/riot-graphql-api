@@ -18,8 +18,7 @@ const getStatsSummary = (region) => (id) =>
       }),
       {},
       json.playerStatSummaries
-    ))
-    .catch(err => { throw err; });
+    ));
 
 // find+propEq finds the first queueStats for the given mode or undefined
 export default (region) =>

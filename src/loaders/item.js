@@ -12,8 +12,7 @@ const getItems = (region) => async function(ids) {
   if (!allItems) {
     allItems = await fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/item?itemListData=all&${key}`)
       .then(response => response.json())
-      .then(json => json.data)
-      .catch(err => { throw err; });
+      .then(json => json.data);
   }
   return new Promise(
     (resolve) => {

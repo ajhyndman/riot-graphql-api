@@ -15,8 +15,7 @@ const getChampions = (region) => async function(ids) {
         (acc, champion) => ({ ...acc, [champion.id]: champion }),
         {},
         Object.values(json.data)
-      ))
-      .catch(err => { throw err; });
+      ));
   }
   return new Promise(
     (resolve) => {

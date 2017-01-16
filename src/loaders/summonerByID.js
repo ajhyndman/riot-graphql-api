@@ -11,8 +11,7 @@ import key from './key';
 const getSummonersById = (region) => (ids) =>
   fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.4/summoner/${ids.join(',')}?${key}`)
     .then(response => response.json())
-    .then(json => ids.map(id => json[id]))
-    .catch(err => { throw err; });
+    .then(json => ids.map(id => json[id]));
 
 export default (region) => new DataLoader(
   (ids) => new Promise((resolve) => {

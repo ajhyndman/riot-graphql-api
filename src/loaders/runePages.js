@@ -11,8 +11,7 @@ import key from './key';
 const getRunePagesBySummoner = (region) => (ids) =>
   fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.4/summoner/${ids.join(',')}/runes?${key}`)
     .then(response => response.json())
-    .then(json => ids.map(id => json[id].pages))
-    .catch(err => { throw err; });
+    .then(json => ids.map(id => json[id].pages));
 
 export default (region) => new DataLoader(
   (ids) => new Promise((resolve) => {

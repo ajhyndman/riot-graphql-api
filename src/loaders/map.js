@@ -12,8 +12,7 @@ const getMaps = (region) => async function(ids) {
   if (!allMaps) {
     allMaps = await fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/map?${key}`)
       .then(response => response.json())
-      .then(json => json.data)
-      .catch(err => { throw err; });
+      .then(json => json.data);
   }
   return new Promise(
     (resolve) => {

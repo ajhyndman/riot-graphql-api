@@ -22,8 +22,7 @@ const realmCodes = {
 
 const getCurrentGame = (region) => (id) =>
   fetch(`https://${region}.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/${realmCodes[region]}/${id}?${key}`)
-    .then(response => response.json())
-    .catch(err => { throw err; });
+    .then(response => response.json());
 
 export default (region) => new DataLoader(
   (ids) => Promise.all(

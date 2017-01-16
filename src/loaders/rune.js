@@ -12,8 +12,7 @@ const getRunes = (region) => async function(ids) {
   if (!allRunes) {
     allRunes = await fetch(`https://${region}.api.pvp.net/api/lol/static-data/${region}/v1.2/rune?runeListData=all&${key}`)
       .then(response => response.json())
-      .then(json => json.data)
-      .catch(err => { throw err; });
+      .then(json => json.data);
   }
   return new Promise(
     (resolve) => {

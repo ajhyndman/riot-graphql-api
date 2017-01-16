@@ -15,8 +15,7 @@ const getSummonerSpells = (region) => async function(ids) {
         (acc, summonerSpell) => ({ ...acc, [summonerSpell.id]: summonerSpell }),
         {},
         Object.values(json.data)
-      ))
-      .catch(err => { throw err; });
+      ));
   }
   return new Promise(
     (resolve) => {
