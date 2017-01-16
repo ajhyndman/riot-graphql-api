@@ -10,6 +10,7 @@ import { map, prop } from 'ramda';
 import CurrentGameType from './currentGame';
 import MasteryPageType from './masteryPage';
 import MatchType from './match';
+import StatsSummaryType from './statsSummary';
 import RunePageType from './runePage';
 
 export default new GraphQLObjectType({
@@ -56,6 +57,11 @@ export default new GraphQLObjectType({
       type: new GraphQLList(RunePageType),
       resolve: (summoner, args, { loaders }) =>
         loaders.runePages.load(summoner.id),
+    },
+    statsSummary: {
+      type: StatsSummaryType,
+      resolve: (summoner, { mode }, { loaders }) =>
+        loaders.stats.summary.load(summoner.id),
     },
     summonerLevel: {
       type: GraphQLInt,

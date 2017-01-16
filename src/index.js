@@ -12,6 +12,7 @@ import masteryLoader from './loaders/mastery';
 import masteryPagesLoader from './loaders/masteryPages';
 import matchListLoader from './loaders/matchList';
 import matchLoader from './loaders/match';
+import statsSummaryLoader from './loaders/statsSummary';
 import runeLoader from './loaders/rune';
 import runePagesLoader from './loaders/runePages';
 import summonerByIDLoader from './loaders/summonerByID';
@@ -46,13 +47,17 @@ const staticLoaders = {
 
 app.use(graphQLHTTP(request => ({
   context: {
-    // Dynamic Loaders, initialised here, have a cache that is regenereated on
+    // Dynamic Loaders, initialised here, have a cache that is regenerated on
     // each request.
     loaders: {
       ...staticLoaders,
       currentGame: currentGameLoader(REGION),
       matchList: matchListLoader(REGION),
       masteryPages: masteryPagesLoader(REGION),
+      stats: {
+        summary: statsSummaryLoader(REGION),
+        // TODO: ranked
+      },
       runePages: runePagesLoader(REGION),
     },
   },
