@@ -46,7 +46,7 @@ const staticLoaders = {
 
 app.use(graphQLHTTP(request => ({
   context: {
-    // Dynamic Loaders, initialised here, have a cache that is regenereated on
+    // Dynamic Loaders, initialised here, have a cache that is regenerated on
     // each request.
     loaders: {
       ...staticLoaders,
