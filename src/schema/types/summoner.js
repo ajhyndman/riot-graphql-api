@@ -35,13 +35,13 @@ export default new GraphQLObjectType({
       type: new GraphQLList(MatchType),
       args: {
         start: { type: new GraphQLNonNull(GraphQLInt) },
-        end: { type: new GraphQLNonNull(GraphQLInt) },
+        count: { type: new GraphQLNonNull(GraphQLInt) },
       },
-      resolve: (summoner, { start, end }, { loaders }) =>
+      resolve: (summoner, { start, count }, { loaders }) =>
         loaders.matchList.load(summoner.id)
         .then((matchList) =>
           loaders.match.loadMany(
-            map(prop('matchId'), matchList.slice(start, end))
+            map(prop('matchId'), matchList.slice(start, start + count))
           )
         ),
     },
