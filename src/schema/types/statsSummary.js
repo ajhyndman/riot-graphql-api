@@ -9,7 +9,7 @@ import DateType from './date';
 
 // TODO: default each of these to 0. (currently they are not included in the riot response if the value is 0)
 const AggregatedStatsType = new GraphQLObjectType({
-  name: 'AggregatedStats',
+  name: 'AggregatedStats_Summary',
   description: 'This object contains aggregated stats',
   fields: () => ({
     // dominion-only stats are ignored

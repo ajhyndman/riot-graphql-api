@@ -10,6 +10,7 @@ import { map, prop } from 'ramda';
 import CurrentGameType from './currentGame';
 import MasteryPageType from './masteryPage';
 import MatchType from './match';
+import StatsRankedType from './statsRanked';
 import StatsSummaryType from './statsSummary';
 import RunePageType from './runePage';
 
@@ -58,10 +59,15 @@ export default new GraphQLObjectType({
       resolve: (summoner, args, { loaders }) =>
         loaders.runePages.load(summoner.id),
     },
+    statsRanked: {
+      type: StatsRankedType,
+      resolve: (summoner, { mode }, { loaders }) =>
+        loaders.statsRanked.load(summoner.id),
+    },
     statsSummary: {
       type: StatsSummaryType,
       resolve: (summoner, { mode }, { loaders }) =>
-        loaders.stats.summary.load(summoner.id),
+        loaders.statsSummary.load(summoner.id),
     },
     summonerLevel: {
       type: GraphQLInt,

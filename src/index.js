@@ -12,6 +12,7 @@ import masteryLoader from './loaders/mastery';
 import masteryPagesLoader from './loaders/masteryPages';
 import matchListLoader from './loaders/matchList';
 import matchLoader from './loaders/match';
+import statsRankedLoader from './loaders/statsRanked';
 import statsSummaryLoader from './loaders/statsSummary';
 import runeLoader from './loaders/rune';
 import runePagesLoader from './loaders/runePages';
@@ -54,10 +55,8 @@ app.use(graphQLHTTP(request => ({
       currentGame: currentGameLoader(REGION),
       matchList: matchListLoader(REGION),
       masteryPages: masteryPagesLoader(REGION),
-      stats: {
-        summary: statsSummaryLoader(REGION),
-        // TODO: ranked
-      },
+      statsRanked: statsRankedLoader(REGION),
+      statsSummary: statsSummaryLoader(REGION),
       runePages: runePagesLoader(REGION),
     },
   },
