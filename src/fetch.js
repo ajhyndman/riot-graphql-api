@@ -2,8 +2,7 @@ import fetch from 'node-fetch';
 import { pick } from 'ramda';
 
 import log from './log';
-import { RIOT_API_KEY } from '../secret';
-import { RETRY_TIMEOUT } from '../config';
+import { RETRY_TIMEOUT, RIOT_API_KEY } from '../config';
 
 
 /**
