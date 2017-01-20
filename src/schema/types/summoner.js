@@ -40,7 +40,7 @@ export default new GraphQLObjectType({
       resolve: (summoner, { start, count }, { loaders }) =>
         loaders.matchList.load(summoner.id)
         .then((matchList) =>
-          loaders.match.loadMany(
+          matchList && loaders.match.loadMany(
             map(prop('matchId'), matchList.slice(start, start + count))
           )
         ),
