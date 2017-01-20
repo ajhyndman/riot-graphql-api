@@ -6,7 +6,9 @@
 export const PORT = 3000;
 
 // Which API region should this server query against?
-export const REGION = 'oce';
+// Should be one of:
+// 'br' 'eune' 'euw' 'jp' 'kr' 'lan' 'las' 'na' 'oce' 'ru' 'tr'
+export const REGION = 'na';
 
 // How long should this server wait before retrying a rate-limited request?
 // (value in milliseconds)
