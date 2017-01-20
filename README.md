@@ -1,3 +1,5 @@
+![Riot - GraphQL](https://github.com/ajhyndman/riot-graphql-api/raw/master/src/riot-graphql.png)
+
 # Riot GraphQL API
 
 [![yarn compatible](https://img.shields.io/badge/yarn-compatible-4BC51D.svg?style=flat)](https://yarnpkg.com/)
