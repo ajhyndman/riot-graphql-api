@@ -1,4 +1,7 @@
 # Riot GraphQL API
+
+[![yarn compatible](https://img.shields.io/badge/yarn-compatible-4BC51D.svg?style=flat)](https://yarnpkg.com/)
+
 A GraphQL wrapper for the official Riot Games REST API
 
 ![image](https://cloud.githubusercontent.com/assets/11449340/21294116/fe812258-c589-11e6-85ff-c5f57e070518.png)
