@@ -14,6 +14,9 @@ export const REGION = 'na';
 // (value in milliseconds)
 export const RETRY_TIMEOUT = 10000;
 
+// How many requests should the server make to the same API per timeout?
+export const RATE_LIMIT = 10;
+
 // Riot API Key:
 // https://developer.riotgames.com/docs/api-keys
 export const RIOT_API_KEY = 'RGAPI-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX';
