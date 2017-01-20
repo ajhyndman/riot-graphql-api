@@ -1,0 +1,7 @@
+.git
+.gitignore
+.vscode
+build
+elastic-beanstalk
+node_modules
+README.md
