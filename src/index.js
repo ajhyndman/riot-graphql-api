@@ -7,6 +7,8 @@ import path from 'path';
 import championLoader from './loaders/champion';
 import currentGameLoader from './loaders/currentGame';
 import itemLoader from './loaders/item';
+import leagueChallengerLoader from './loaders/leagueChallenger';
+import leagueMasterLoader from './loaders/leagueMaster';
 import mapLoader from './loaders/map';
 import masteryLoader from './loaders/mastery';
 import masteryPagesLoader from './loaders/masteryPages';
@@ -52,8 +54,10 @@ app.use(graphQLHTTP(request => ({
     // each request.
     loaders: {
       ...staticLoaders,
+      challengerLeague: leagueChallengerLoader(REGION),
       currentGame: currentGameLoader(REGION),
       matchList: matchListLoader(REGION),
+      masterLeague: leagueMasterLoader(REGION),
       masteryPages: masteryPagesLoader(REGION),
       statsRanked: statsRankedLoader(REGION),
       statsSummary: statsSummaryLoader(REGION),
