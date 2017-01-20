@@ -10,8 +10,8 @@ To run it yourself:
 
 * [Register for a Riot API Key](https://developer.riotgames.com/docs/getting-started)
 * Clone this repository: `git clone https://github.com/ajhyndman/riot-graphql-api.git`
-* Install dependencies: `yarn install`
+* Install dependencies: `npm install`
 * Copy the file `config.example.js` and rename it to `config.js`.  Update `RIOT_API_KEY` with the key
 you acquired above.
-* Launch the server: `yarn start`
+* Launch the server: `npm start`
 * Open `localhost:3000` in a browser to explore the API using GraphiQL.
