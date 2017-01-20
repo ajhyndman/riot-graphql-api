@@ -13,6 +13,7 @@ import { map, prop } from 'ramda';
 
 import ChampionType from './types/champion';
 import ItemType from './types/item';
+import LeagueType from './types/league';
 import MapType from './types/map';
 import MasteryType from './types/mastery';
 import MatchType from './types/match';
@@ -26,6 +27,16 @@ const QueryType = (region) => new GraphQLObjectType({
   name: 'Query',
   description: 'Query against anything from the Official Riot REST API!',
   fields: () => ({
+    challengerLeague: {
+      type: LeagueType,
+      args: {
+        queueType: {
+          type: new GraphQLNonNull(GraphQLString),
+        },
+      },
+      resolve: (root, { queueType }, { loaders }) =>
+        loaders.challengerLeague.load(queueType),
+    },
     champion: {
       type: ChampionType,
       args: {
@@ -55,6 +66,16 @@ const QueryType = (region) => new GraphQLObjectType({
       },
       resolve: (root, { id }, { loaders }) =>
         loaders.map.load(id),
+    },
+    masterLeague: {
+      type: LeagueType,
+      args: {
+        queueType: {
+          type: new GraphQLNonNull(GraphQLString),
+        },
+      },
+      resolve: (root, { queueType }, { loaders }) =>
+        loaders.masterLeague.load(queueType),
     },
     mastery: {
       type: MasteryType,
