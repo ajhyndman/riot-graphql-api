@@ -2,7 +2,6 @@ import {
   GraphQLInt,
   GraphQLList,
   GraphQLObjectType,
-  GraphQLString,
 } from 'graphql';
 
 import ChampionType from './champion';

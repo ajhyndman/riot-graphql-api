@@ -1,14 +1,11 @@
 import {
-  GraphQLEnumType,
   GraphQLInt,
   GraphQLList,
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLSchema,
   GraphQLString,
-  graphql,
 } from 'graphql';
-import fetch from 'node-fetch';
 import { map, prop } from 'ramda';
 
 import ChampionType from './types/champion';
@@ -18,12 +15,11 @@ import MapType from './types/map';
 import MasteryType from './types/mastery';
 import MatchType from './types/match';
 import RuneType from './types/rune';
-import RunePageType from './types/runePage';
 import SummonerType from './types/summoner';
 import SummonerSpellType from './types/summonerSpell';
 
 
-const QueryType = (region) => new GraphQLObjectType({
+const QueryType = new GraphQLObjectType({
   name: 'Query',
   description: 'Query against anything from the Official Riot REST API!',
   fields: () => ({
@@ -146,6 +142,6 @@ const QueryType = (region) => new GraphQLObjectType({
 });
 
 
-export default (region) => new GraphQLSchema({
-  query: QueryType(region),
+export default new GraphQLSchema({
+  query: QueryType,
 });

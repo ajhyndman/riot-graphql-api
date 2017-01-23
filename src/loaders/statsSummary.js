@@ -1,5 +1,5 @@
 import DataLoader from 'dataloader';
-import { map, prop, reduce } from 'ramda';
+import { map, reduce } from 'ramda';
 
 import fetch from '../fetch';
 import key from './key';

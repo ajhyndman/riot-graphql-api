@@ -1,9 +1,7 @@
 import {
-  GraphQLBoolean,
   GraphQLInt,
   GraphQLList,
   GraphQLObjectType,
-  GraphQLScalarType,
   GraphQLString,
 } from 'graphql';
 import { prop, sortBy, zipWith } from 'ramda';

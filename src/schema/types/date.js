@@ -6,5 +6,4 @@ export default new GraphQLScalarType({
   description: 'Date object',
   serialize: (date) => date.valueOf(),
   parseValue: (date) => new Date(date),
-  parseLiteral: (ast) => console.log(ast),
 });
