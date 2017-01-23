@@ -24,7 +24,7 @@ export default new GraphQLObjectType({
     },
     matchCreation: {
       type: DateType,
-      description: 'Match creation time. Designates when the team select lobby is created and/or the match is made through match making, not when the game actually starts.'
+      description: 'Match creation time. Designates when the team select lobby is created and/or the match is made through match making, not when the game actually starts.',
     },
     matchDuration: {
       type: GraphQLInt,

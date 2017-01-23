@@ -25,7 +25,7 @@ const BlockItemType = new GraphQLObjectType({
       resolve: (blockItem, args, { loaders }) =>
         loaders.item.load(blockItem.id),
     },
-  })
+  }),
 });
 
 const BlockType = new GraphQLObjectType({
@@ -84,7 +84,7 @@ const SkinType = new GraphQLObjectType({
     id: { type: GraphQLInt },
     name: { type: GraphQLString },
     num: { type: GraphQLInt },
-  })
+  }),
 })
 
 const SpellType = new GraphQLObjectType({

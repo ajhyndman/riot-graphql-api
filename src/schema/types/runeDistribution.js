@@ -18,7 +18,7 @@ export default new GraphQLObjectType({
     count: {
       type: GraphQLInt,
       resolve: (runeDistribution) =>
-        runeDistribution.rank || runeDistribution.count
+        runeDistribution.rank || runeDistribution.count,
     },
   }),
 });

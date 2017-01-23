@@ -47,7 +47,7 @@ const QueryType = new GraphQLObjectType({
       type: ItemType,
       args: {
         id: {
-          type: new GraphQLNonNull(GraphQLInt)
+          type: new GraphQLNonNull(GraphQLInt),
         },
       },
       resolve: (root, { id }, { loaders }) =>
@@ -57,7 +57,7 @@ const QueryType = new GraphQLObjectType({
       type: MapType,
       args: {
         id: {
-          type: new GraphQLNonNull(GraphQLInt)
+          type: new GraphQLNonNull(GraphQLInt),
         },
       },
       resolve: (root, { id }, { loaders }) =>
@@ -77,7 +77,7 @@ const QueryType = new GraphQLObjectType({
       type: MasteryType,
       args: {
         id: {
-          type: new GraphQLNonNull(GraphQLInt)
+          type: new GraphQLNonNull(GraphQLInt),
         },
       },
       resolve: (root, { id }, { loaders }) =>
@@ -137,7 +137,7 @@ const QueryType = new GraphQLObjectType({
       },
       resolve: (root, { id }, { loaders }) =>
         loaders.summonerSpell.load(id),
-    }
+    },
   }),
 });
 

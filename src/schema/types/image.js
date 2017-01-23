@@ -15,7 +15,7 @@ export default new GraphQLObjectType({
     full: {
       type: GraphQLString,
       resolve: (imageData) =>
-        `${HOST}champion/${imageData.full}`
+        `${HOST}champion/${imageData.full}`,
     },
     group: { type: GraphQLString },
     h: { type: GraphQLInt },

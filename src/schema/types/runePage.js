@@ -3,7 +3,7 @@ import {
   GraphQLInt,
   GraphQLList,
   GraphQLObjectType,
-  GraphQLString
+  GraphQLString,
 } from 'graphql';
 
 import RuneType from './rune';
@@ -17,7 +17,7 @@ const RuneSlotType = new GraphQLObjectType({
       type: RuneType,
       description: 'Rune associated with the rune slot.',
       resolve: (runeSlot, args, { loaders }) =>
-        loaders.rune.load(runeSlot.runeId)
+        loaders.rune.load(runeSlot.runeId),
     },
     runeSlotId: {
       type: GraphQLInt,
@@ -32,7 +32,7 @@ export default new GraphQLObjectType({
   fields: () => ({
     current: {
       type: GraphQLBoolean,
-      description: 'Indicates if the page is the current page.'
+      description: 'Indicates if the page is the current page.',
     },
     id: {
       type: GraphQLInt,
