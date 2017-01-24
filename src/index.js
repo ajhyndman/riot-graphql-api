@@ -1,3 +1,4 @@
+// @flow
 import express from 'express';
 import favicon from 'serve-favicon';
 import graphQLHTTP from 'express-graphql';
@@ -48,7 +49,7 @@ const staticLoaders = {
   summonerSpell: summonerSpellLoader(REGION),
 };
 
-app.use(graphQLHTTP(request => ({
+app.use(graphQLHTTP(() => ({
   context: {
     // Dynamic Loaders, initialised here, have a cache that is regenerated on
     // each request.
@@ -64,11 +65,12 @@ app.use(graphQLHTTP(request => ({
       runePages: runePagesLoader(REGION),
     },
   },
-  schema: schema(REGION),
+  schema: schema,
   // TODO: set graphiql to false in production
   graphiql: true,
 })));
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log('Riot GraphQL API is listening on port:', PORT)
 });

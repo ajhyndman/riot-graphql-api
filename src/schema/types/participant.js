@@ -1,3 +1,4 @@
+// @flow
 import {
   GraphQLBoolean,
   GraphQLInt,
@@ -20,59 +21,59 @@ const ParticipantStatsType = new GraphQLObjectType({
   fields: () => ({
     assists: {
       type: GraphQLInt,
-      description: 'Number of assists'
+      description: 'Number of assists',
     },
     champLevel: {
       type: GraphQLInt,
-      description: 'Champion level achieved'
+      description: 'Champion level achieved',
     },
     combatPlayerScore: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, player\'s combat score, otherwise 0'
+      description: 'If game was a dominion game, player\'s combat score, otherwise 0',
     },
     deaths: {
       type: GraphQLInt,
-      description: 'Number of deaths'
+      description: 'Number of deaths',
     },
     doubleKills: {
       type: GraphQLInt,
-      description: 'Number of double kills'
+      description: 'Number of double kills',
     },
     firstBloodAssist: {
       type: GraphQLBoolean,
-      description: 'Flag indicating if participant got an assist on first blood'
+      description: 'Flag indicating if participant got an assist on first blood',
     },
     firstBloodKill: {
       type: GraphQLBoolean,
-      description: 'Flag indicating if participant got first blood'
+      description: 'Flag indicating if participant got first blood',
     },
     firstInhibitorAssist: {
       type: GraphQLBoolean,
-      description: 'Flag indicating if participant got an assist on the first inhibitor'
+      description: 'Flag indicating if participant got an assist on the first inhibitor',
     },
     firstInhibitorKill: {
       type: GraphQLBoolean,
-      description: 'Flag indicating if participant destroyed the first inhibitor'
+      description: 'Flag indicating if participant destroyed the first inhibitor',
     },
     firstTowerAssist: {
       type: GraphQLBoolean,
-      description: 'Flag indicating if participant got an assist on the first tower'
+      description: 'Flag indicating if participant got an assist on the first tower',
     },
     firstTowerKill: {
       type: GraphQLBoolean,
-      description: 'Flag indicating if participant destroyed the first tower'
+      description: 'Flag indicating if participant destroyed the first tower',
     },
     goldEarned: {
       type: GraphQLInt,
-      description: 'Gold earned'
+      description: 'Gold earned',
     },
     goldSpent: {
       type: GraphQLInt,
-      description: 'Gold spent'
+      description: 'Gold spent',
     },
     inhibitorKills: {
       type: GraphQLInt,
-      description: 'Number of inhibitor kills'
+      description: 'Number of inhibitor kills',
     },
     item0: {
       type: ItemType,
@@ -118,171 +119,171 @@ const ParticipantStatsType = new GraphQLObjectType({
     },
     killingSprees: {
       type: GraphQLInt,
-      description: 'Number of killing sprees'
+      description: 'Number of killing sprees',
     },
     kills: {
       type: GraphQLInt,
-      description: 'Number of kills'
+      description: 'Number of kills',
     },
     largestCriticalStrike: {
       type: GraphQLInt,
-      description: 'Largest critical strike'
+      description: 'Largest critical strike',
     },
     largestKillingSpree: {
       type: GraphQLInt,
-      description: 'Largest killing spree'
+      description: 'Largest killing spree',
     },
     largestMultiKill: {
       type: GraphQLInt,
-      description: 'Largest multi kill'
+      description: 'Largest multi kill',
     },
     magicDamageDealt: {
       type: GraphQLInt,
-      description: 'Magical damage dealt'
+      description: 'Magical damage dealt',
     },
     magicDamageDealtToChampions: {
       type: GraphQLInt,
-      description: 'Magical damage dealt to champions'
+      description: 'Magical damage dealt to champions',
     },
     magicDamageTaken: {
       type: GraphQLInt,
-      description: 'Magic damage taken'
+      description: 'Magic damage taken',
     },
     minionsKilled: {
       type: GraphQLInt,
-      description: 'Minions killed'
+      description: 'Minions killed',
     },
     neutralMinionsKilled: {
       type: GraphQLInt,
-      description: 'Neutral minions killed'
+      description: 'Neutral minions killed',
     },
     neutralMinionsKilledEnemyJungle: {
       type: GraphQLInt,
-      description: 'Neutral jungle minions killed in the enemy team\'s jungle'
+      description: 'Neutral jungle minions killed in the enemy team\'s jungle',
     },
     neutralMinionsKilledTeamJungle: {
       type: GraphQLInt,
-      description: 'Neutral jungle minions killed in your team\'s jungle'
+      description: 'Neutral jungle minions killed in your team\'s jungle',
     },
     nodeCapture: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, number of node captures'
+      description: 'If game was a dominion game, number of node captures',
     },
     nodeCaptureAssist: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, number of node capture assists'
+      description: 'If game was a dominion game, number of node capture assists',
     },
     nodeNeutralize: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, number of node neutralizations'
+      description: 'If game was a dominion game, number of node neutralizations',
     },
     nodeNeutralizeAssist: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, number of node neutralization assists'
+      description: 'If game was a dominion game, number of node neutralization assists',
     },
     objectivePlayerScore: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, player\'s objectives score, otherwise 0'
+      description: 'If game was a dominion game, player\'s objectives score, otherwise 0',
     },
     pentaKills: {
       type: GraphQLInt,
-      description: 'Number of penta kills'
+      description: 'Number of penta kills',
     },
     physicalDamageDealt: {
       type: GraphQLInt,
-      description: 'Physical damage dealt'
+      description: 'Physical damage dealt',
     },
     physicalDamageDealtToChampions: {
       type: GraphQLInt,
-      description: 'Physical damage dealt to champions'
+      description: 'Physical damage dealt to champions',
     },
     physicalDamageTaken: {
       type: GraphQLInt,
-      description: 'Physical damage taken'
+      description: 'Physical damage taken',
     },
     quadraKills: {
       type: GraphQLInt,
-      description: 'Number of quadra kills'
+      description: 'Number of quadra kills',
     },
     sightWardsBoughtInGame: {
       type: GraphQLInt,
-      description: 'Sight wards purchased'
+      description: 'Sight wards purchased',
     },
     teamObjective: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, number of completed team objectives (i.e., quests)'
+      description: 'If game was a dominion game, number of completed team objectives (i.e., quests)',
     },
     totalDamageDealt: {
       type: GraphQLInt,
-      description: 'Total damage dealt'
+      description: 'Total damage dealt',
     },
     totalDamageDealtToChampions: {
       type: GraphQLInt,
-      description: 'Total damage dealt to champions'
+      description: 'Total damage dealt to champions',
     },
     totalDamageTaken: {
       type: GraphQLInt,
-      description: 'Total damage taken'
+      description: 'Total damage taken',
     },
     totalHeal: {
       type: GraphQLInt,
-      description: 'Total heal amount'
+      description: 'Total heal amount',
     },
     totalPlayerScore: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, player\'s total score, otherwise 0'
+      description: 'If game was a dominion game, player\'s total score, otherwise 0',
     },
     totalScoreRank: {
       type: GraphQLInt,
-      description: 'If game was a dominion game, team rank of the player\'s total score (e.g., 1-5)'
+      description: 'If game was a dominion game, team rank of the player\'s total score (e.g., 1-5)',
     },
     totalTimeCrowdControlDealt: {
       type: GraphQLInt,
-      description: 'Total dealt crowd control time'
+      description: 'Total dealt crowd control time',
     },
     totalUnitsHealed: {
       type: GraphQLInt,
-      description: 'Total units healed'
+      description: 'Total units healed',
     },
     towerKills: {
       type: GraphQLInt,
-      description: 'Number of tower kills'
+      description: 'Number of tower kills',
     },
     tripleKills: {
       type: GraphQLInt,
-      description: 'Number of triple kills'
+      description: 'Number of triple kills',
     },
     trueDamageDealt: {
       type: GraphQLInt,
-      description: 'True damage dealt'
+      description: 'True damage dealt',
     },
     trueDamageDealtToChampions: {
       type: GraphQLInt,
-      description: 'True damage dealt to champions'
+      description: 'True damage dealt to champions',
     },
     trueDamageTaken: {
       type: GraphQLInt,
-      description: 'True damage taken'
+      description: 'True damage taken',
     },
     unrealKills: {
       type: GraphQLInt,
-      description: 'Number of unreal kills'
+      description: 'Number of unreal kills',
     },
     visionWardsBoughtInGame: {
       type: GraphQLInt,
-      description: 'Vision wards purchased'
+      description: 'Vision wards purchased',
     },
     wardsKilled: {
       type: GraphQLInt,
-      description: 'Number of wards killed'
+      description: 'Number of wards killed',
     },
     wardsPlaced: {
       type: GraphQLInt,
-      description: 'Number of wards placed'
+      description: 'Number of wards placed',
     },
     winner: {
       type: GraphQLBoolean,
-      description: 'Flag indicating whether or not the participant won'
+      description: 'Flag indicating whether or not the participant won',
     },
   }),
 });
@@ -300,7 +301,7 @@ export default new GraphQLObjectType({
     highestAchievedSeasonTier: { type: GraphQLString },
     masteries: {
       type: new GraphQLList(MasteryDistributionType),
-      description: 'List of mastery information'
+      description: 'List of mastery information',
     },
     summoner: {
       type: SummonerType,

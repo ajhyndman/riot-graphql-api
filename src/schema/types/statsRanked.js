@@ -1,8 +1,8 @@
+// @flow
 import {
   GraphQLInt,
   GraphQLList,
   GraphQLObjectType,
-  GraphQLString,
 } from 'graphql';
 
 import ChampionType from './champion';
@@ -15,94 +15,94 @@ const AggregatedStatsType = new GraphQLObjectType({
   fields: () => ({
     averageAssists: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageChampionsKilled: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageCombatPlayerScore: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageNodeCapture: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageNodeCaptureAssist: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageNodeNeutralize: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageNodeNeutralizeAssist: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageNumDeaths: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageObjectivePlayerScore: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageTeamObjective: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     averageTotalPlayerScore: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     botGamesPlayed: { type: GraphQLInt },
     killingSpree: { type: GraphQLInt },
     maxAssists: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     maxChampionsKilled: { type: GraphQLInt },
     maxCombatPlayerScore: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     maxLargestCriticalStrike: { type: GraphQLInt },
     maxLargestKillingSpree: { type: GraphQLInt },
     maxNodeCapture: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     maxNodeCaptureAssist: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     maxNodeNeutralize: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     maxNodeNeutralizeAssist: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     maxNumDeaths: {
       type: GraphQLInt,
-      description: 'Only returned for ranked statistics.'
+      description: 'Only returned for ranked statistics.',
     },
     maxObjectivePlayerScore: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     maxTeamObjective: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     maxTimePlayed: { type: GraphQLInt },
     maxTimeSpentLiving: { type: GraphQLInt },
     maxTotalPlayerScore: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     mostChampionKillsPerSession: { type: GraphQLInt },
     mostSpellsCast: { type: GraphQLInt },
@@ -115,7 +115,7 @@ const AggregatedStatsType = new GraphQLObjectType({
     totalDamageTaken: { type: GraphQLInt },
     totalDeathsPerSession: {
       type: GraphQLInt,
-      description: 'Only returned for ranked statistics.'
+      description: 'Only returned for ranked statistics.',
     },
     totalDoubleKills: { type: GraphQLInt },
     totalFirstBlood: { type: GraphQLInt },
@@ -126,11 +126,11 @@ const AggregatedStatsType = new GraphQLObjectType({
     totalNeutralMinionsKilled: { type: GraphQLInt },
     totalNodeCapture: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     totalNodeNeutralize: {
       type: GraphQLInt,
-      description: 'Dominion only.'
+      description: 'Dominion only.',
     },
     totalPentaKills: { type: GraphQLInt },
     totalPhysicalDamageDealt: { type: GraphQLInt },

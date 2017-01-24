@@ -1,3 +1,4 @@
+// @flow
 import {
   GraphQLFloat,
   GraphQLObjectType,

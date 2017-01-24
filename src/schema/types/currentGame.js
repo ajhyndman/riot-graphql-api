@@ -1,3 +1,4 @@
+// @flow
 import {
   GraphQLInt,
   GraphQLList,
@@ -36,15 +37,15 @@ export default new GraphQLObjectType({
   fields: () => ({
     bannedChampions: {
       type: new GraphQLList(BannedChampionType),
-      description: 'Banned champion information'
+      description: 'Banned champion information',
     },
     gameId: {
       type: GraphQLInt,
-      description: 'The ID of the game'
+      description: 'The ID of the game',
     },
     gameLength: {
       type: GraphQLInt,
-      description: 'The amount of time in seconds that has passed since the game started'
+      description: 'The amount of time in seconds that has passed since the game started',
     },
     gameMode: {
       type: GraphQLString,
@@ -52,15 +53,15 @@ export default new GraphQLObjectType({
     },
     gameQueueConfigId: {
       type: GraphQLInt,
-      description: 'The queue type (queue types are documented on the Game Constants page)'
+      description: 'The queue type (queue types are documented on the Game Constants page)',
     },
     gameStartTime: {
       type: GraphQLInt,
-      description: 'The game start time represented in epoch milliseconds'
+      description: 'The game start time represented in epoch milliseconds',
     },
     gameType: {
       type: GraphQLString,
-      description: 'The game type (Legal values: CUSTOM_GAME, MATCHED_GAME, TUTORIAL_GAME)'
+      description: 'The game type (Legal values: CUSTOM_GAME, MATCHED_GAME, TUTORIAL_GAME)',
     },
     map: {
       type: MapType,
@@ -74,11 +75,11 @@ export default new GraphQLObjectType({
     // },
     participants: {
       type: new GraphQLList(ParticipantType),
-      description: 'The participant information'
+      description: 'The participant information',
     },
     platformId: {
       type: GraphQLString,
-      description: 'The ID of the platform on which the game is being played'
+      description: 'The ID of the platform on which the game is being played',
     },
   }),
 });

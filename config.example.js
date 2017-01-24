@@ -1,5 +1,7 @@
 /**
  * Use this file to configure your Riot GraphQL API proxy server!
+ * 
+ * @flow
  */
 
 // What port should this server listen on?

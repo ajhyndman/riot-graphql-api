@@ -1,6 +1,6 @@
+// @flow
 import {
   GraphQLBoolean,
-  GraphQLFloat,
   GraphQLInt,
   GraphQLList,
   GraphQLObjectType,
@@ -20,7 +20,7 @@ const GoldType = new GraphQLObjectType({
     purchasable: { type: GraphQLBoolean },
     sell: { type: GraphQLInt },
     total: { type: GraphQLInt },
-  })
+  }),
 });
 
 export default new GraphQLObjectType({
@@ -45,11 +45,11 @@ export default new GraphQLObjectType({
     name: { type: GraphQLString },
     plaintext: { type: GraphQLString },
     requiredChampion: { type: GraphQLString },
-    rune: { type: RuneMetaType, },
+    rune: { type: RuneMetaType },
     sanitizedDescription: { type: GraphQLString },
     specialRecipe: { type: GraphQLInt },
     stacks: { type: GraphQLInt },
-    stats: { type: BasicDataStatsType, },
+    stats: { type: BasicDataStatsType },
     tags: { type: new GraphQLList(GraphQLString) },
-  })
+  }),
 });

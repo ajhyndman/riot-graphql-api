@@ -1,16 +1,18 @@
+// @flow
 import DataLoader from 'dataloader';
 import { flatten, splitEvery } from 'ramda';
 
 import fetch from '../fetch';
 import key from './key';
 import { RATE_LIMIT, RETRY_TIMEOUT } from '../../config';
+import type { Region } from './misc/region';
 
 
 const getMatchByID = (region) => (id) =>
   fetch(`https://${region}.api.pvp.net/api/lol/${region}/v2.2/match/${id}?${key}`)
     .then(response => response.json());
 
-export default (region) => new DataLoader(
+export default (region: Region) => new DataLoader(
   ids => new Promise((resolve) => {
     Promise.all(
       // split Ids into groups of ten.

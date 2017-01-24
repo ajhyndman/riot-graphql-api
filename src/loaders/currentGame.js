@@ -1,8 +1,10 @@
+// @flow
 import DataLoader from 'dataloader';
 import { map } from 'ramda';
 
 import fetch from '../fetch';
 import key from './key';
+import type { Region } from './misc/region';
 
 
 const realmCodes = {
@@ -24,7 +26,7 @@ const getCurrentGame = (region) => (id) =>
   fetch(`https://${region}.api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/${realmCodes[region]}/${id}?${key}`)
     .then(response => response.json());
 
-export default (region) => new DataLoader(
+export default (region: Region) => new DataLoader(
   (ids) => Promise.all(
     map(getCurrentGame(region), ids)
   )

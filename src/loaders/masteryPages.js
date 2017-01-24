@@ -1,8 +1,10 @@
+// @flow
 import DataLoader from 'dataloader';
 import { map, splitEvery, unnest } from 'ramda';
 
 import fetch from '../fetch';
 import key from './key';
+import type { Region } from './misc/region';
 
 
 /**
@@ -13,7 +15,7 @@ const getMasteryPagesBySummoner = (region) => (ids) =>
     .then(response => response.json())
     .then(json => ids.map(id => json[id].pages));
 
-export default (region) => new DataLoader(
+export default (region: Region) => new DataLoader(
   (ids) => new Promise((resolve) => {
     Promise.all(
       // Group summoner IDs into sets of 40 IDs, and pass those to our fetch call.

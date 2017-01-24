@@ -1,8 +1,10 @@
+// @flow
 import DataLoader from 'dataloader';
 import { map } from 'ramda';
 
 import fetch from '../fetch';
 import key from './key';
+import type { Region } from './misc/region';
 
 
 // assume that the list of masteries never changes, and cache it once.
@@ -21,6 +23,6 @@ const getMasteries = (region) => async function(ids) {
   );
 };
 
-export default (region) => new DataLoader(
+export default (region: Region) => new DataLoader(
   ids => getMasteries(region)(ids)
 );

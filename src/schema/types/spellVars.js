@@ -1,3 +1,4 @@
+// @flow
 import {
   GraphQLFloat,
   GraphQLList,
@@ -15,5 +16,5 @@ export default new GraphQLObjectType({
     key: { type: GraphQLString },
     link: { type: GraphQLString },
     ranksWith: { type: GraphQLString },
-  })
+  }),
 });

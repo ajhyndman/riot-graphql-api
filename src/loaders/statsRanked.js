@@ -1,7 +1,9 @@
+// @flow
 import DataLoader from 'dataloader';
 
 import fetch from '../fetch';
 import key from './key';
+import type { Region } from './misc/region';
 
 
 // todo: have an int or enum variable for season id
@@ -11,6 +13,6 @@ const getRankedStatsBySummoner = (region) => (summonerID) =>
   fetch(`https://${region}.api.pvp.net/api/lol/${region}/v1.3/stats/by-summoner/${summonerID}/ranked?${season}&${key}`)
     .then(response => response.json());
 
-export default (region) => new DataLoader(
+export default (region: Region) => new DataLoader(
   ids => Promise.all(ids.map(getRankedStatsBySummoner(region)))
 );

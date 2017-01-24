@@ -1,3 +1,4 @@
+// @flow
 import {
   GraphQLInt,
   GraphQLObjectType,
@@ -57,7 +58,7 @@ const QueueStatsType = new GraphQLObjectType({
     aggregatedStats: { type: AggregatedStatsType },
     wins: { type: GraphQLInt },
     losses: { type: GraphQLInt },  // Returned for ranked queue types only.
-    modifyDate: { type: DateType, },  // this is a long (epoch milliseconds)
+    modifyDate: { type: DateType },  // this is a long (epoch milliseconds)
     // Mode is a string like AramUnranked5x5, Ascension, URF, RankedFlexSR
     mode: { type: GraphQLString },
   }),

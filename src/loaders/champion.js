@@ -1,8 +1,10 @@
+// @flow
 import DataLoader from 'dataloader';
 import { reduce, map } from 'ramda';
 
 import fetch from '../fetch';
 import key from './key';
+import type { Region } from './misc/region';
 
 // assume that the list of champions never changes, and cache it once.
 let allChampions;
@@ -24,6 +26,6 @@ const getChampions = (region) => async function(ids) {
   );
 };
 
-export default (region) => new DataLoader(
+export default (region: Region) => new DataLoader(
   ids => getChampions(region)(ids)
 );

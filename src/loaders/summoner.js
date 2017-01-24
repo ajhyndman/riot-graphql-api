@@ -1,7 +1,9 @@
+// @flow
 import DataLoader from 'dataloader';
 
 import fetch from '../fetch';
 import key from './key';
+import type { Region } from './misc/region';
 
 
 const getSummonersByName = (region) => (names) =>
@@ -9,6 +11,6 @@ const getSummonersByName = (region) => (names) =>
     .then(response => response.json())
     .then(json => names.map(name => json[name.toLowerCase()]));
 
-export default (region) => new DataLoader(
+export default (region: Region) => new DataLoader(
   getSummonersByName(region)
 );

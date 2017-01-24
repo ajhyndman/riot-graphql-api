@@ -1,3 +1,4 @@
+// @flow
 import {
   GraphQLInt,
   GraphQLObjectType,
@@ -17,8 +18,8 @@ export default new GraphQLObjectType({
     },
     count: {
       type: GraphQLInt,
-      resolve: (runeDistribution, args, { loaders }) =>
-        runeDistribution.rank || runeDistribution.count
+      resolve: (runeDistribution) =>
+        runeDistribution.rank || runeDistribution.count,
     },
   }),
 });
