@@ -15,6 +15,9 @@
   "rules": {
     "comma-dangle": ["error", "always-multiline"],
 
+    // eslint-plugin-flow
+    "flowtype/require-valid-file-annotation": ["error", "always"],
+
     // eslint-plugin-import
     "import/first": "error",
     "import/newline-after-import": "error",

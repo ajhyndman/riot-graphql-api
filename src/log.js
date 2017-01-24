@@ -1,3 +1,4 @@
+// @flow
 import bunyan from 'bunyan';
 
 

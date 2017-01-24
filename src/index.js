@@ -1,3 +1,4 @@
+// @flow
 import express from 'express';
 import favicon from 'serve-favicon';
 import graphQLHTTP from 'express-graphql';

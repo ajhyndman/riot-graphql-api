@@ -1,3 +1,4 @@
+// @flow
 import {
   GraphQLEnumType,
 } from 'graphql';

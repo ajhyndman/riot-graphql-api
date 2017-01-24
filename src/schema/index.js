@@ -1,3 +1,4 @@
+// @flow
 import {
   GraphQLInt,
   GraphQLList,
@@ -17,6 +18,7 @@ import MatchType from './types/match';
 import RuneType from './types/rune';
 import SummonerType from './types/summoner';
 import SummonerSpellType from './types/summonerSpell';
+
 
 
 const QueryType = new GraphQLObjectType({

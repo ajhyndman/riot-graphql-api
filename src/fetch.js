@@ -1,3 +1,4 @@
+// @flow
 import fetch from 'node-fetch';
 import { pick } from 'ramda';
 
@@ -8,7 +9,7 @@ import { RETRY_TIMEOUT, RIOT_API_KEY } from '../config';
 /**
  * Transparently wrap the fetch API to inject logging and error-handling behaviour.
  */
-export default function wrappedFetch(...args) {
+export default function wrappedFetch(...args: any) {
   // obfuscate the API key in logs
   const url = args[0].replace(RIOT_API_KEY, '***');
 

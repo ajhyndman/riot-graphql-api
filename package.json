@@ -11,6 +11,7 @@
     "dataloader": "^1.2.0",
     "express": "^4.14.0",
     "express-graphql": "^0.6.1",
+    "flow-bin": "^0.38.0",
     "graphql": "^0.8.2",
     "morgan": "^1.7.0",
     "node-fetch": "^1.6.3",
@@ -18,13 +19,16 @@
     "serve-favicon": "^2.3.2"
   },
   "scripts": {
+    "flow": "flow check",
     "start": "babel-node src/index.js | bunyan -l info",
-    "test": "eslint src/"
+    "eslint": "eslint src/",
+    "test": "yarn eslint && yarn flow"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
     "babel-plugin-ramda": "^1.1.6",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-2": "^6.18.0",
     "eslint": "^3.14.0",

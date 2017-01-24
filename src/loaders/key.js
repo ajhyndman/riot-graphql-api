@@ -1,3 +1,4 @@
+// @flow
 import { RIOT_API_KEY } from '../../config';
 
 
