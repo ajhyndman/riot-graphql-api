@@ -49,8 +49,10 @@ const staticLoaders = {
   summonerSpell: summonerSpellLoader(REGION),
 };
 
-app.use(graphQLHTTP(() => ({
+app.use(graphQLHTTP((request) => ({
   context: {
+    key: request.query.api_key,
+
     // Dynamic Loaders, initialised here, have a cache that is regenerated on
     // each request.
     loaders: {
